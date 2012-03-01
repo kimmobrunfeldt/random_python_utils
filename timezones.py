@@ -1,4 +1,6 @@
 #!/usr/bin/python
+#
+# Example of how to use pytz.
 
 import pytz
 import time
