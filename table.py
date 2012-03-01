@@ -1,11 +1,9 @@
 #!/usr/bin/env python
 # -*- coding: UTF-8 -*-
-#
-# Author: Kimmo Brunfeldt
 
 """
-Draws a (sorted and) nice table of a 2-dimensional list.
-Handles unicode characters correctly.
+Table class that has a draw method. It draws (sorted and) nice table of
+data. Handles unicode characters correctly.
 """
 
 import operator
@@ -61,7 +59,7 @@ class Table(object):
             if index == 1:  # After headers, print limiter.
                 print(limiter)
 
-            # Every item in row, separated with '|',
+            # Every item in row, separated with self.VERTICAL,
             # space-padded to match max widths.
 
             line = self.VERTICAL
@@ -70,7 +68,7 @@ class Table(object):
                 line += element + ' ' * (max_width - self.text_width_(element))
                 line += self.VERTICAL
 
-            print(' %s' % line.encode('UTF-8'))
+            print(' %s' % line.encode('utf-8'))
 
         print(limiter)
         if sort_column is not None:
@@ -130,4 +128,6 @@ if __name__ == '__main__':
     ]
 
     table = Table(data)
-    table.draw()
+    # table.draw()
+    # table.draw(sort_column=0)
+    table.draw(sort_column=0, reverse=True)
