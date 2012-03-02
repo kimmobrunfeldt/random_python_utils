@@ -28,7 +28,7 @@ class TestTable(unittest.TestCase):
         second_column_width = len('Person') + 2
 
         t = table.Table(data)
-        self.assertEqual(t.column_widths_[1], second_column_width,
+        self.assertEqual(t._column_widths[1], second_column_width,
                          'incorrect column width when header is the widest')
 
     def test_asian_characters(self):
@@ -40,7 +40,7 @@ class TestTable(unittest.TestCase):
         second_column_width = 4 * 2 + 2  # " 语漢漢漢 "
 
         t = table.Table(data)
-        self.assertEqual(t.column_widths_[1], second_column_width,
+        self.assertEqual(t._column_widths[1], second_column_width,
                          'width of asian characters were counted wrong')
 
     def test_non_printable(self):
@@ -52,7 +52,7 @@ class TestTable(unittest.TestCase):
         second_column_width = len('abcdefghi') + 2  # " abcdefghi "
 
         t = table.Table(data)
-        self.assertEqual(t.column_widths_[1], second_column_width,
+        self.assertEqual(t._column_widths[1], second_column_width,
                          'non-printable characters were not removed')
 
     def test_unicode_conversion(self):
@@ -63,15 +63,15 @@ class TestTable(unittest.TestCase):
         t = table.Table(data)
 
         already_unicode = u'ä'
-        uni = t.all_to_unicode_(already_unicode)
+        uni = t._all_to_unicode(already_unicode)
         self.assertEqual(uni, already_unicode, 'incorrect unicode conversion')
 
         not_str = 44.0
-        uni = t.all_to_unicode_(not_str)
+        uni = t._all_to_unicode(not_str)
         self.assertEqual(uni, u'44.0', 'incorrect unicode conversion')
 
         latin1_encoded = u'ä'.encode('iso-8859-1')
-        uni = t.all_to_unicode_(latin1_encoded)
+        uni = t._all_to_unicode(latin1_encoded)
         self.assertEqual(uni, u'ä', 'incorrect unicode conversion')
 
 
