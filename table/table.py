@@ -38,8 +38,7 @@ class Table(object):
 
     def draw(self):
         """Draws a nice table of 2 dimensional list.
-        First row of table is headers, following rows are data.
-        Not very efficient, self._table is copied!"""
+        First row of table is headers, following rows are data."""
         # +--+--+
         limiter = self.CORNER + \
                   self.CORNER.join([x * self.HORIZONTAL
