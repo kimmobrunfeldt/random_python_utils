@@ -29,8 +29,9 @@ def find_best_match(item, seq, diff_func, max_diff=None):
                it must return int/float. The smaller the number,
                the more similar items are.
     max_diff: Optional number value. If the best found match differs from the
-              actual word more than this value(diff_func(a, b) > max_diff),
-              None is returned. Meaning that none of the words matches.
+              actual item more than this value(diff_func(a, b) > max_diff),
+              None is returned. Meaning that none of the items in 'seq'
+              is close enough.
 
     Returns the item from 'seq' which had highest match.
     """
