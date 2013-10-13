@@ -1,6 +1,6 @@
 """
 Removes greenscreen from an image.
-Usage: ./greenscreen_remove.py image.jpg
+Usage: python greenscreen_remove.py image.jpg
 """
 
 from PIL import Image
