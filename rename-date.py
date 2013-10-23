@@ -18,7 +18,6 @@ def main():
 
     files = glob.glob(os.path.join(directory, pattern))
 
-    print files, pattern
     for path in files:
         if not os.path.isfile(path):
             print path
